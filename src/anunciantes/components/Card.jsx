@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-export const Card = ({_id, titulo, dependencia, fecha, cuerpo}) => {
+export const Card = ({_id, titulo, dependencia, fecha, parrafo1}) => {
+  console.log(titulo);
   return (
     <>
         <div className="col" key={_id}>
@@ -11,7 +12,7 @@ export const Card = ({_id, titulo, dependencia, fecha, cuerpo}) => {
                 <h5 className="card-title">{titulo.slice(0, 20)}...</h5>
                 <hr />
                 <p>
-                  {cuerpo.slice(0, 50)}...
+                  {parrafo1.slice(0, 50)}...
                 </p>
                 <hr />
                 <small>Dependencia: <b>{dependencia}</b> </small>

@@ -24,7 +24,7 @@ export const AnuncioPage = () => {
     
   }
   filtro(id)
-  const {_id, titulo, dependencia, cuerpo, fecha} = datos
+  const {_id, titulo, dependencia, parrafo1, parrafo2, parrafo3, fecha} = datos
 
   const navegation = useNavigate();
 
@@ -49,7 +49,13 @@ export const AnuncioPage = () => {
           <li className="list-group-item"><b>fecha: </b>{fecha}</li>
         </ul>
         <h5 className="mt-3">publicacion</h5>
-        <p> {cuerpo} </p>
+        <hr />
+        <h6>Introduccion</h6>
+        <p> {parrafo1} </p>
+        <h6>Desarrollo</h6>
+        <p> {parrafo2} </p>
+        <h6>Desenlace</h6>
+        <p> {parrafo3} </p>
         <hr />
         <h5>Imagenes de la publicacion</h5>
         <div>
