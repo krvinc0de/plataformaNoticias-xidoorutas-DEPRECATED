@@ -44,50 +44,94 @@ export const LoginPage = () => {
   
 
   const onLogin = (e) => { 
+    e.preventDefault()
     const {user, password} = usuario;
     const prueba = usuariosGet.filter(fil => fil.user === user && fil.password === password)
-    const [objeto] = prueba
-    const {dependencia, nombre} = objeto
-    if(prueba.length === 1){
-      login(user, nombre, dependencia)
-      navigate('/', {
-        replace: true
-      })
+    if (prueba.length === 0) {
+      console.log('noooo');
     }else{
-      console.log('no existe el usuario');
+      const [objeto] = prueba;
+      const {dependencia, nombre} = objeto;
+      if(prueba.length === 1){
+        login(user, nombre, dependencia);
+        navigate('/', {
+          replace: true
+        })
+      }else{
+        console.log('no existe el usuario');
+      }
     }
   }
 
   return (
     <>
-      <div className='container'>
-          <div className="wrapper">
-          <form className="form-signin" onSubmit={onSubmit}>       
-            <h2 className="form-signin-heading">Xidoo Rutas Anuncios</h2>
-            <input 
-              type="text" 
-              className="form-control" 
-              name="user" 
-              placeholder="Usuario" 
-              required 
-              onChange={cuandoCambia}
-            />
-            <input 
-              type="password" 
-              className="form-control" 
-              name="password" 
-              placeholder="Contrasenia" 
-              required
-              onChange={cuandoCambia}
-            />      
-            <button 
-              className="btn btn-lg btn-primary btn-block" 
-              type="submit"
-              onClick={onLogin}
-            >
-              Iniciar sesion
-            </button>   
-          </form>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="row">
+              <div className="col">
+                <div className="title-style">
+                  <h1 className="titulo">XIDOO</h1>
+                  <h1 className="titulo">RUTAS</h1>
+                </div>
+              </div>
+              <div className="col centrador">
+                <img src="../assets/logoxr.png" className="imagen" />
+              </div>
+            </div>
+            <p className="hastag-style">#Conectando la ciudad</p>
+            <p className="sub-style">
+              Da a conocer tus negocios o manten informada a la comunidad con
+              tus anuncios.
+            </p>
+          </div>
+          <div className="col">
+            <div className="card rounded-3">
+              <div className="card-body">
+                <form onSubmit={onSubmit}>
+                  <div className="input mb-3">
+                    <label className="form-label">
+                      Usuario
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name='user'
+                      placeholder="usuario" 
+                      required
+                      onChange={cuandoCambia}
+                    />
+                  </div>
+                  <div className="input mb-3">
+                    <label className="form-label">
+                      contrasena
+                    </label>
+                    <input
+                      type="password" 
+                      className="form-control" 
+                      name="password" 
+                      placeholder="Contrasenia" 
+                      required
+                      onChange={cuandoCambia}
+                    />
+                  </div>
+                  <hr />
+                  <div className="d-grid gap-2">
+                    <button 
+                      type="submit" 
+                      className="btn btn-warning"
+                      onClick={onLogin}
+                    >
+                      Iniciar sesion
+                    </button>
+                  </div>
+                </form>
+                <div className="lost mb-3">
+                  <label className="form-label"></label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

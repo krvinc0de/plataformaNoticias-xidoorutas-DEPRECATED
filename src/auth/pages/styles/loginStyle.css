@@ -1,46 +1,62 @@
-body {
-	background: #eee !important;	
-}
-
-.wrapper {	
-	margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-.form-signin {
-  max-width: 380px;
-  padding: 15px 35px 45px;
-  margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);  
-
- 
-}
-
-.form-signin-heading,
-.checkbox {
-  margin-bottom: 30px;
-}
-
-.checkbox {
-  font-weight: normal;
-}
-
-.form-control {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-}
-
-input[type="text"] {
-  margin-bottom: -1px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-input[type="password"] {
-  margin-bottom: 20px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
+.card{
+  height: 90%;
+  width: 90%;
+  border: 2px solid #C1C1C1;
+  }
+  .card-body{
+  margin-right: 20px;
+  margin-left: 20px;
+  }
+  .input{
+  margin-top: 10px;
+  }
+  .form-control{
+  border: 2px solid #C1C1C1;
+  }
+  .container{
+    padding-top: 10%;
+  }
+  .sub-style{
+    color: #B6B6B6;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: initial;
+  }
+  .hastag-style{
+    font-size: 20px; 
+    text-align: initial;
+    margin-top: 10px;
+  }
+  .title-style{
+    margin-top: 10px;
+    color: #F2C94C;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .titulo{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 70%;
+    font-style: normal;
+  }
+  .centrador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .imagen {
+    display: flex;
+    width: 150px;
+    height: 150px;
+  }
+  .lost{
+    color:#F2C94C;
+    margin-top: 20px;
+    text-decoration: none;
+    border: 1px;
+  }
+  .crearCuenta{
+    margin-right: 30px;
+    margin-left: 30px;
+  }
