@@ -9,19 +9,19 @@ export const AppRouter = () => {
     <>
         <Routes>
 
-            <Route path='/*' element=
-              {
-                <PrivateRoute>
-                  <AnunciantesRoutes />
-                </PrivateRoute>
-              }
-            />
-
             <Route path='/login' element=
               {
                 <PublicRoute>
                   <LoginPage />
                 </PublicRoute>
+              }
+            />
+
+            <Route path='/*' element=
+              {
+                <PrivateRoute>
+                  <AnunciantesRoutes />
+                </PrivateRoute>
               }
             />
 
