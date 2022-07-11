@@ -5,11 +5,11 @@ import {AuthContext} from './AuthContext'
 
 
 const init =() => {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
   
     return {
-      logged: !!user,
-      user: user
+      logged: !!usuario,
+      usuario: usuario
     }
   }
 
@@ -18,20 +18,26 @@ export const AuthProvider = ({children}) => {
 
     const [authState, dispatch] = useReducer(authReducer, {}, init);
 
-    const login = (name = '') =>{
-        const user = {id:1, name: name}
+    const login = (user = '', nombre = '', dependencia = '') =>{
+      console.log(user);
+        const usuario = {
+          id:1, 
+          usuario: user,
+          nombre: nombre,
+          dependencia: dependencia
+        }
 
         const action = {
             type: types.login,
-            payload: user
+            payload: usuario
         }
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('usuario', JSON.stringify(usuario));
 
         dispatch(action);
     }
 
     const logout = () => {
-        localStorage.removeItem('user');
+        localStorage.removeItem('usuario');
         const action = {
             action: types.logout
         }

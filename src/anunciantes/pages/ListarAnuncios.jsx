@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../auth/context/AuthContext';
 import { Card } from '../components/Card';
 import { fechData } from '../helpers/consultarRegistro';
 import '../styles/linkStyle.css'
 
 export const ListarAnuncios = () => {
+
+  const {usuario} = useContext(AuthContext)
 
   const {data} = fechData();
   console.log(data);
@@ -12,7 +15,7 @@ export const ListarAnuncios = () => {
     <>
       <div className="container mt-3 mb-3">
         <h1>
-          Publicaciones de: <small>USUARIO</small>
+          Publicaciones de: <small>{usuario?.usuario}</small>
         </h1>
         <hr />
         <div className="container">

@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth/context/AuthContext';
 
 import '../styles/styleNavbar.css'
 
 export const Navbar = () => {
   
+  const {usuario, logout} = useContext(AuthContext)
   const navigate = useNavigate();
 
   const cerrarsesion = ()=> {
-    //falta el metodo logout
+    logout()
     navigate(
       '/login', {
         replace: true
@@ -27,9 +29,8 @@ export const Navbar = () => {
           <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="offcanvas offcanvas-start bg-dark" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div className="offcanvas offcanvas-end bg-dark" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div className="offcanvas-header">
-              <h5 className="offcanvas-title text-light" id="offcanvasNavbarLabel">Haz iniciado sesion como: <small>usuario</small> </h5>
               <button type="button" className="btn-close bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div>
@@ -37,6 +38,26 @@ export const Navbar = () => {
             </div>
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <div className='container'>
+                  <table className='table table-dark table-bordered'>
+                    <thead>
+                      <tr className='table-active'>
+                        <th scope='col'>Datos de la cuenta</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope='row'>Usuario: {usuario?.usuario}</th>
+                      </tr>
+                      <tr className='table-active'>
+                        <th scope='row'>nombre: {usuario?.nombre}</th>
+                      </tr>
+                      <tr>
+                        <th scope='row'>dependencia: {usuario?.dependencia}</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
                 <button 
                   className='btn btn-success'
                   onClick={cerrarsesion}

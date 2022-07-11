@@ -1,5 +1,7 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext'
 import { url_consulta } from '../database/API_URL'
 import { useForm } from '../hooks/useForm'
 import './styles/loginStyle.css'
@@ -10,12 +12,15 @@ export const LoginPage = () => {
     user: '',
     password: ''
   }
-
+  //usuarios de la db
   const [usuariosGet, setUsuariosGet] = useState([]);
+  //usuario ingresado
   const [usuario, setusuario] = useState({})
+  //datos y acciones del form
   const {onSubmit, cuandoCambia, formState} = useForm( initialform );
-  //console.log(formState);
-  //const [first, setfirst] = useState(second)
+
+  const {login} = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const dta = () => {
     //esta funcion hace fetch a los usuarios y los guarda en un estado
@@ -39,14 +44,18 @@ export const LoginPage = () => {
   
 
   const onLogin = (e) => { 
-    e.preventDefault();
-    console.log(usuario);
-    console.log(usuariosGet);
-    console.log(usuario);
     const {user, password} = usuario;
-    console.log(user);
     const prueba = usuariosGet.filter(fil => fil.user === user && fil.password === password)
-    console.log(prueba);
+    const [objeto] = prueba
+    const {dependencia, nombre} = objeto
+    if(prueba.length === 1){
+      login(user, nombre, dependencia)
+      navigate('/', {
+        replace: true
+      })
+    }else{
+      console.log('no existe el usuario');
+    }
   }
 
   return (
