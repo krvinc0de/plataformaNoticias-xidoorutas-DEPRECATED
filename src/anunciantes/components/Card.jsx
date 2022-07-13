@@ -2,7 +2,6 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 export const Card = ({_id, titulo, dependencia, fecha, parrafo1}) => {
-  console.log(titulo);
   return (
     <>
         <div className="col" key={_id}>

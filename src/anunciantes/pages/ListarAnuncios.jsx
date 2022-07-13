@@ -9,7 +9,6 @@ export const ListarAnuncios = () => {
   const {usuario} = useContext(AuthContext)
 
   const {data} = fechData();
-  console.log(data);
 
   return (
     <>
