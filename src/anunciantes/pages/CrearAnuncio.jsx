@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { AuthContext } from '../../auth/context/AuthContext'
 import { format } from 'date-fns'
 import { useForm } from '../hooks/useForm'
@@ -43,7 +43,12 @@ export const CrearAnuncio = () => {
 
   const EnvioAndAlert = (e) => {
     e.preventDefault();
-    if (datos.parrafo1 === '' && datos.parrafo2 === '' && datos.parrafo3 === '' && datos.titulo === '') {
+    if (
+      datos.parrafo1 === '' || datos.parrafo1 != ''
+      && datos.parrafo2 === '' || datos.parrafo2 != ''
+      && datos.parrafo3 === '' || datos.parrafo3 != ''
+      && datos.titulo === ''|| datos.titulo != ''
+      ) {
       Swal.fire({
         icon: 'error',
         title: 'No puede haber campos vacios',
@@ -77,7 +82,7 @@ export const CrearAnuncio = () => {
   return (
     <>
       <div className='container mt-2'>
-        <form>
+        <form onSubmit={EnvioAndAlert}>
             <label className='form-label'>Titulo de la publicacion</label>
             <input 
               type="text" 
@@ -162,7 +167,6 @@ export const CrearAnuncio = () => {
             <button 
               className='btn btn-success mt-3 mb-5' 
               type='submit'
-              onClick={EnvioAndAlert}
             >
               Publicar
             </button>
