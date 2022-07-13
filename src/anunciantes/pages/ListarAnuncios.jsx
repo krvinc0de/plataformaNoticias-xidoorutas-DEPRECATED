@@ -13,24 +13,10 @@ export const ListarAnuncios = () => {
 
   return (
     <>
-      <div className="container mt-3 mb-3">
+      <div className="container mb-3">
         <h1>
           Publicaciones de: <small>{usuario?.usuario}</small>
         </h1>
-        <hr />
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <h4>ordenar por:</h4>
-            </div>
-            <div className="col">
-              <button className='btn btn-success'>Mas reciente</button>
-            </div>
-            <div className="col">
-              <button className='btn btn-success'>Mas antiguo</button>
-            </div>
-          </div>
-        </div>
         <hr />
         <div className="row rows-cols-1 row-cols-md-3 g-3">
           {data.length === 0 ? (<h1>No hay publicaciones o esta fallando el servidor</h1>) : 

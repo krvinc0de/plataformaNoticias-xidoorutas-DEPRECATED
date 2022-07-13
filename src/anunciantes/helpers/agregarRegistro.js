@@ -9,7 +9,7 @@ export const enviarDatos = (datos) => {
 
     axios.post(url_agregar, enviar)
       .then(function(response){
-        console.log(response);
+        console.log(response)
       })
       .catch(function (error) {
         console.log(error);

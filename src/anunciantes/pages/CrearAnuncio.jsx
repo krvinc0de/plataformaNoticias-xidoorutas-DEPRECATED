@@ -1,42 +1,83 @@
 import React, { useContext, useEffect } from 'react'
 import { AuthContext } from '../../auth/context/AuthContext'
-import { enviarDatos } from '../helpers/agregarRegistro'
+import { format } from 'date-fns'
 import { useForm } from '../hooks/useForm'
+import Swal from 'sweetalert2'
 import '../styles/formStyle.css'
 
 export const CrearAnuncio = () => {
   
+  //trae los datos de la cuenta del usuario desde el contexto de la aplicacion
   const {usuario} = useContext(AuthContext)
-
+  //extrae la dependencia desde los datos del contexto
   const dep = usuario.dependencia
 
+  //obtiene la decha del dia de hot y la formatea con date-fns
+  const today = new Date();
+  const fechaFormato = format(today, 'dd/MM/yyyy')
+
+  //objeto inicial que se envia al hook useForm
   const initState = {
     titulo: '',
     dependencia: dep,
-    fecha: '',
+    fecha: fechaFormato,
     cuerpo: '',
     parrafo1: '',
     parrafo2: '',
     parrafo3: ''
   }
 
-  const {cuandoCambia, onSubmit, titulo, dependencia, fecha, parrafo1, parrafo2, parrafo3} = useForm(initState)
+  //llamda al hook useForm y extraigo funciones y datos
+  const {cuandoCambia, onSubmit, titulo, dependencia, parrafo1, parrafo2, parrafo3} = useForm(initState)
 
+  //datos para setear al estado del hook useForm
   const datos = {
     titulo: titulo,
     dependencia: dependencia,
-    fecha: fecha,
+    fecha: fechaFormato,
     parrafo1: parrafo1,
     parrafo2: parrafo2,
     parrafo3: parrafo3
   }
        
-  //enviarDatos(datos)
+
+  const EnvioAndAlert = (e) => {
+    e.preventDefault();
+    if (datos.parrafo1 === '' && datos.parrafo2 === '' && datos.parrafo3 === '' && datos.titulo === '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'No puede haber campos vacios',
+        text: 'revisa el contenido y completalo!',
+        confirmButtonColor: '#EB4747',
+        confirmButtonText: 'Revisar el contenido',
+      })
+    }else {
+      Swal.fire({
+        icon: 'question',
+        title: 'La publicacion esta apunto de crearse en Xidoo Rutas',
+        text: 'Asegurate de que no tenga errores! :)',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Estoy seguro, crea mi publicacion!',
+        cancelButtonText: 'Revisar de nuevo'
+      }).then(result=>{
+        if(result.isConfirmed && datos.parrafo1 != '' && datos.parrafo2 != '' && datos.parrafo3 && datos.titulo != ''){
+          Swal.fire(
+            'Publicacion creada con exito!',
+            'Gracias por contribuir a la comunidad:)',
+            'success',
+            onSubmit(datos)
+            )
+        }
+      }) 
+    }
+  }
 
   return (
     <>
       <div className='container mt-2'>
-        <form onSubmit={()=>onSubmit(datos)}>
+        <form>
             <label className='form-label'>Titulo de la publicacion</label>
             <input 
               type="text" 
@@ -61,10 +102,10 @@ export const CrearAnuncio = () => {
             <input 
               type="text" 
               className='form-control' 
-              value={fecha} name='fecha' 
+              value={fechaFormato} 
+              name='fecha' 
               onChange={cuandoCambia}
-              minLength='10'
-              maxLength='30'
+              disabled
             />
 
             <label className='label-form mt-2'>Introduccion de la publicacion</label>
@@ -118,7 +159,13 @@ export const CrearAnuncio = () => {
 
             <hr />
 
-            <button className='btn btn-success mt-3 mb-5' type='submit'>Publicar</button>
+            <button 
+              className='btn btn-success mt-3 mb-5' 
+              type='submit'
+              onClick={EnvioAndAlert}
+            >
+              Publicar
+            </button>
         </form>
 
       </div>

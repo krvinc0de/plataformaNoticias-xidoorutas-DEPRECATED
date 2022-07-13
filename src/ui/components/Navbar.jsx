@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../auth/context/AuthContext';
 
 import '../styles/styleNavbar.css'
@@ -10,12 +11,30 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   const cerrarsesion = ()=> {
-    logout()
-    navigate(
-      '/login', {
-        replace: true
+    Swal.fire({
+      title: 'Desea cerrar sesion?',
+      text: `Se esta cerrara la sesion de ${usuario?.usuario}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, cierra mi sesion',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Nos vemos pronto!',
+          'La sesion fue cerrada con exito',
+          'success',
+          logout(),
+          navigate(
+            '/login', {
+              replace: true
+            }
+          )
+        )
       }
-    )
+    })
   }
 
   return (
