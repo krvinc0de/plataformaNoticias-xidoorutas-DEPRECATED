@@ -22,10 +22,12 @@ export const Navbar = () => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Nos vemos pronto!',
-          'La sesion fue cerrada con exito',
-          'success',
+        Swal.fire({
+          icon: 'success',
+          title: 'La sesion se cerro',
+          showConfirmButton: false,
+          timer: 1500
+        },
           logout(),
           navigate(
             '/login', {

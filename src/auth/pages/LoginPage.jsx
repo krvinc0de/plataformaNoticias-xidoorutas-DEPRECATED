@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 import { AuthContext } from '../context/AuthContext'
 import { url_consulta } from '../database/API_URL'
 import { useForm } from '../hooks/useForm'
@@ -43,12 +44,18 @@ export const LoginPage = () => {
   }, [formState])
   
 
-  const onLogin = (e) => { 
+  const onLogin = (e) => {
     e.preventDefault()
     const {user, password} = usuario;
     const prueba = usuariosGet.filter(fil => fil.user === user && fil.password === password)
     if (prueba.length === 0) {
-      console.log('noooo');
+      Swal.fire({
+        icon: 'error',
+        title: 'No existe ese usuario o contrasenia',
+        text: 'Intentelo de nuevo',
+        showConfirmButton: false,
+        timer: 2500
+      })
     }else{
       const [objeto] = prueba;
       const {dependencia, nombre} = objeto;
