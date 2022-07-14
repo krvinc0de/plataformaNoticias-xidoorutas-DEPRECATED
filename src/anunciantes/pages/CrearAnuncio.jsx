@@ -2,8 +2,9 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../../auth/context/AuthContext'
 import { format } from 'date-fns'
 import { useForm } from '../hooks/useForm'
-import Swal from 'sweetalert2'
 import '../styles/formStyle.css'
+import { errorEmptyInput } from '../alertas/errorEmptyInput'
+import { successPost } from '../alertas/successPost'
 
 export const CrearAnuncio = () => {
   
@@ -47,35 +48,11 @@ export const CrearAnuncio = () => {
       datos.parrafo1 === '' || datos.parrafo1 != ''
       && datos.parrafo2 === '' || datos.parrafo2 != ''
       && datos.parrafo3 === '' || datos.parrafo3 != ''
-      && datos.titulo === ''|| datos.titulo != ''
+      && datos.titulo === ''
       ) {
-      Swal.fire({
-        icon: 'error',
-        title: 'No puede haber campos vacios',
-        text: 'revisa el contenido y completalo!',
-        confirmButtonColor: '#EB4747',
-        confirmButtonText: 'Revisar el contenido',
-      })
+      errorEmptyInput()
     }else {
-      Swal.fire({
-        icon: 'question',
-        title: 'La publicacion esta apunto de crearse en Xidoo Rutas',
-        text: 'Asegurate de que no tenga errores! :)',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Estoy seguro, crea mi publicacion!',
-        cancelButtonText: 'Revisar de nuevo'
-      }).then(result=>{
-        if(result.isConfirmed && datos.parrafo1 != '' && datos.parrafo2 != '' && datos.parrafo3 && datos.titulo != ''){
-          Swal.fire(
-            'Publicacion creada con exito!',
-            'Gracias por contribuir a la comunidad:)',
-            'success',
-            onSubmit(datos)
-            )
-        }
-      }) 
+      successPost(datos, onSubmit)
     }
   }
 

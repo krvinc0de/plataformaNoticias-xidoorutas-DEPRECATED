@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Swal from 'sweetalert2'
+import { userNotFound } from '../alertas'
 import { AuthContext } from '../context/AuthContext'
 import { url_consulta } from '../database/API_URL'
 import { useForm } from '../hooks/useForm'
@@ -16,12 +16,12 @@ export const LoginPage = () => {
   //usuarios de la db
   const [usuariosGet, setUsuariosGet] = useState([]);
   //usuario ingresado
-  const [usuario, setusuario] = useState({})
+  const [usuario, setusuario] = useState({});
   //datos y acciones del form
   const {onSubmit, cuandoCambia, formState} = useForm( initialform );
 
-  const {login} = useContext(AuthContext)
-  const navigate = useNavigate()
+  const {login} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const dta = () => {
     //esta funcion hace fetch a los usuarios y los guarda en un estado
@@ -34,28 +34,22 @@ export const LoginPage = () => {
       usr()
     }, [])
   }
-  dta()
+  dta();
 
   useEffect(() => {
     const capture = () => {
       setusuario(formState);
     }
-    capture()
+    capture();
   }, [formState])
   
 
   const onLogin = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const {user, password} = usuario;
-    const prueba = usuariosGet.filter(fil => fil.user === user && fil.password === password)
+    const prueba = usuariosGet.filter(fil => fil.user === user && fil.password === password);
     if (prueba.length === 0) {
-      Swal.fire({
-        icon: 'error',
-        title: 'No existe ese usuario o contrasenia',
-        text: 'Intentelo de nuevo',
-        showConfirmButton: false,
-        timer: 2500
-      })
+      userNotFound();
     }else{
       const [objeto] = prueba;
       const {dependencia, nombre} = objeto;
@@ -63,9 +57,7 @@ export const LoginPage = () => {
         login(user, nombre, dependencia);
         navigate('/', {
           replace: true
-        })
-      }else{
-        console.log('no existe el usuario');
+        });
       }
     }
   }
@@ -142,6 +134,5 @@ export const LoginPage = () => {
         </div>
       </div>
     </>
-
   )
 }
