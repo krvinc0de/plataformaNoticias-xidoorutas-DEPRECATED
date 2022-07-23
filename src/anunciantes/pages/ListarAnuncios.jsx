@@ -12,12 +12,12 @@ export const ListarAnuncios = () => {
 
   return (
     <>
-      <div className="container mb-3">
-        <h1>
+      <h1>
           Publicaciones de: <small>{usuario?.usuario}</small>
-        </h1>
-        <hr />
-        <div className="row rows-cols-1 row-cols-md-3 g-3">
+      </h1>
+      <hr />
+      <div className="mb-1 justify-content-center">
+        <div className="row">
           {data.length === 0 ? (<h1>No hay publicaciones o esta fallando el servidor</h1>) : 
             (data.map((props, i) => <Card key={i} {...props} />))
           }

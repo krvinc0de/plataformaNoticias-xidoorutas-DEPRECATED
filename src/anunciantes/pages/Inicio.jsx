@@ -8,9 +8,9 @@ export const Inicio = () => {
 
   return (
     <>
-      <header className='text-center text-black  masthead'>
+      <header className='text-center text-black'>
         <div className='container'>
-          <img className='border img-fluid d-block mx-auto mb-4 mt-4' src="https://salamanca.gob.mx/wp-content/uploads/2021/10/logo-salamanca-21-24.png" alt="..." />
+          <img className='border img-fluid mx-auto mb-4' src="https://salamanca.gob.mx/wp-content/uploads/2021/10/logo-salamanca-21-24.png" alt="..." />
           <h1>{usuario?.nombre}</h1>
           <hr className='star-light'/>
           <h2 className='font-weight-light mb-1'>Bienvenido</h2>

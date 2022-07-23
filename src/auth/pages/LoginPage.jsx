@@ -75,7 +75,7 @@ export const LoginPage = () => {
                 </div>
               </div>
               <div className="col centrador">
-                <img src="../assets/logoxr.png" className="imagen" />
+                <img src="https://raw.githubusercontent.com/krvinc0de/loginprueba/master/src/assets/logoxr.png?token=GHSAT0AAAAAABUGQ7EXN6C7OCNFRAV4L5QCYWSKKLQ" className="imagen" alt='Xidoo Rutas'/>
               </div>
             </div>
             <p className="hastag-style">#Conectando la ciudad</p>
