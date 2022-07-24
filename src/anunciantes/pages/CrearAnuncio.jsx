@@ -5,6 +5,7 @@ import { useForm } from '../hooks/useForm'
 import '../styles/formStyle.css'
 import { errorEmptyInput } from '../alertas/errorEmptyInput'
 import { successPost } from '../alertas/successPost'
+import { Consideraciones } from '../components/consideraciones'
 
 export const CrearAnuncio = () => {
   
@@ -58,98 +59,100 @@ export const CrearAnuncio = () => {
 
   return (
     <>
-      <div className='container mt-2'>
+      <div className="mt-2">
+        <Consideraciones />
         <form onSubmit={EnvioAndAlert}>
-            <label className='form-label'>Titulo de la publicacion</label>
-            <input 
-              type="text" 
-              className='form-control' 
-              value={titulo} 
-              name='titulo' 
-              onChange={cuandoCambia}
-              minLength='10'
-              maxLength='30'
-            />
+          <label className="form-label">Titulo de la publicacion</label>
+          <input
+            type="text"
+            className="form-control"
+            value={titulo}
+            name="titulo"
+            onChange={cuandoCambia}
+            minLength="10"
+            maxLength="30"
+          />
 
-            <label className='form-label mt-2'>Dependencia</label>
-            <input 
-              type="text" 
-              className='form-control' 
-              value={dependencia} 
-              name='dependencia' 
-              disabled
-            />
+          <label className="form-label mt-2">Dependencia</label>
+          <input
+            type="text"
+            className="form-control"
+            value={dependencia}
+            name="dependencia"
+            disabled
+          />
 
-            <label className='label-form mt-2'>Fecha</label>
-            <input 
-              type="text" 
-              className='form-control' 
-              value={fechaFormato} 
-              name='fecha' 
-              onChange={cuandoCambia}
-              disabled
-            />
+          <label className="label-form mt-2">Fecha</label>
+          <input
+            type="text"
+            className="form-control"
+            value={fechaFormato}
+            name="fecha"
+            onChange={cuandoCambia}
+            disabled
+          />
 
-            <label className='label-form mt-2'>Introduccion de la publicacion</label>
-            <textarea 
-              className="form-control" 
-              rows="3" 
-              value={parrafo1} 
-              name='parrafo1' 
-              onChange={cuandoCambia}
-              minLength='100'
-              maxLength='1000'
-              >
-            </textarea>
+          <label className="label-form mt-2">
+            Introduccion de la publicacion
+          </label>
+          <textarea
+            className="form-control"
+            rows="3"
+            value={parrafo1}
+            name="parrafo1"
+            onChange={cuandoCambia}
+            minLength="100"
+            maxLength="1000"
+          ></textarea>
 
-            <label className='label-form mt-2'>Desarrollo de la publicacion</label>
-            <textarea 
-              className="form-control" 
-              rows="3" value={parrafo2} 
-              name='parrafo2' 
-              onChange={cuandoCambia}
-              minLength='100'
-              maxLength='1000'
-            >
-            </textarea>
+          <label className="label-form mt-2">
+            Desarrollo de la publicacion
+          </label>
+          <textarea
+            className="form-control"
+            rows="3"
+            value={parrafo2}
+            name="parrafo2"
+            onChange={cuandoCambia}
+            minLength="100"
+            maxLength="1000"
+          ></textarea>
 
-            <label className='label-form mt-2'>Conclusion de la publicacion</label>
-            <textarea 
-              className="form-control" 
-              rows="3" value={parrafo3} 
-              name='parrafo3' 
-              onChange={cuandoCambia}
-              minLength='100'
-              maxLength='1000'
-            >
-            </textarea>
+          <label className="label-form mt-2">
+            Conclusion de la publicacion
+          </label>
+          <textarea
+            className="form-control"
+            rows="3"
+            value={parrafo3}
+            name="parrafo3"
+            onChange={cuandoCambia}
+            minLength="100"
+            maxLength="1000"
+          ></textarea>
 
-            <label className='form-label mt-2'>Imagen de titulo</label>
-            <input 
-              type="file" 
-              accept=".png, .jpg, .jpeg" 
-              className='form-control'
-            />
+          <label className="form-label mt-2">Imagen de titulo</label>
+          <input
+            type="file"
+            accept=".png, .jpg, .jpeg"
+            className="form-control"
+          />
 
-            <label className='label-form mt-2'>Imagenes de la publicacion</label>
-            <input 
-              type="file" 
-              accept=".png, .jpg, .jpeg" 
-              multiple 
-              className='form-control'
-            />
+          <label className="label-form mt-2">Imagenes de la publicacion</label>
+          <input
+            type="file"
+            accept=".png, .jpg, .jpeg"
+            multiple
+            className="form-control"
+          />
 
-            <hr />
+          <hr />
 
-            <button 
-              className='btn btn-success mt-3 mb-5' 
-              type='submit'
-            >
-              Publicar
-            </button>
+          <button className="btn btn-success mt-3 mb-5" type="submit">
+            Publicar
+          </button>
         </form>
-
       </div>
     </>
-  )
+  );
 }
