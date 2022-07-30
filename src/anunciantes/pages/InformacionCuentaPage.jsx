@@ -11,7 +11,7 @@ export const InformacionCuentaPage = () => {
 
   return (
     <>
-      <div class="row">
+      <div class="row container">
         <div class="col-4">
           <div class="list-group" id="list-tab" role="tablist">
             <a

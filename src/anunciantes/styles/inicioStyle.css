@@ -1,61 +1,70 @@
 #container2{
-    background-color: #692E41;
+  background-color: #692E41;
+}
+.border{
+    max-width: 300px;
+    max-height: 200px;
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+}
+#contenedor {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  .border{
-      max-width: 300px;
-      max-height: 200px;
-      width: 300px;
-      height: 200px;
-      border-radius: 20px;
+
+  #contenedor > div {
+    width: 50%;
+    height: 10cm;
   }
-  #contenedor {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-   
-    }
-   
-    #contenedor > div {
-      width: 50%;
-      height: 10cm;
-    }
-  #texto{
-      background-color: #f2c84c;
-   
-  }
-  h3{
-      display: block;
-      font-size: .8cm;
-      margin-top: 0.67em;
-      margin-bottom: 0.67em;
-      margin-left: 0;
-      margin-right: 0;
-      font-weight: bold;
-      color: white;
-    }
-    #letras{
-      font-style: normal;
-      text-align: justify;
-      color: white;
-      font-size: .7cm;
-      margin-top: 30px;
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-    sub{
-      margin-top: 50px;
-      color: white;
-      font-size: larger;
-      font-style: italic;
-    }
-    h2{
-      font-size: 1.5cm;
-    }
-    .bot{
-      background-color: #f2c84c; 
-    border: none;
+h3{
+    display: block;
+    font-size: .8cm;
+    margin-top: 20px;
+    margin-bottom: 0.67em;
+    margin-left: .5cm;
+    margin-right: .5cm;
+    font-weight: bold;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 14px;
-     }
+  }
+  #letras{
+    font-style: normal;
+    text-align: justify;
+    color: white;
+    position: absolute,relative;
+    font-size: 100%;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  h2{
+    font-size: 1.5cm;
+  }
+  .bot{
+    background-color: #f2c84c; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 14px;
+   }
+
+   div.container {
+    width: 96%;
+    max-width: 960px;
+    margin: 0 auto;
+
+    }
+    img {
+    width: 220px;
+    max-height: max-content;
+    min-height: min-content;
+    position: relative;
+    }
+    #texto{
+    width: 320px;
+    max-height: max-content;
+    min-height: min-content;
+    background-color: #f2c84c;
+    }

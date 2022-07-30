@@ -59,7 +59,7 @@ export const CrearAnuncio = () => {
 
   return (
     <>
-      <div className="mt-2">
+      <div className="container">
         <Consideraciones />
         <form onSubmit={EnvioAndAlert}>
           <label className="form-label">Titulo de la publicacion</label>
