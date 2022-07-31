@@ -6,4 +6,5 @@
 export * from './CrearAnuncio';
 export * from './Inicio';
 export * from './ListarAnuncios';
-export * from './InformacionCuentaPage'
+export * from './InformacionCuentaPage';
+export * from './NotFoundPage';

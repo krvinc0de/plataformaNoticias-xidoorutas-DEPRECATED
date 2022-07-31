@@ -26,7 +26,7 @@ export const Consideraciones = () => {
             <li className="dropdown-item list-group-item text-justify d-flex justify-content-between align-items-start col-5">
               <div className="ms-2 me-auto">
                 <div className="fw-bold">Ortografía</div>
-                Considera cuidar la ortografía de tu redacción en todo momento.
+                  Cuida la ortografía de tu redacción en todo momento.
               </div>
               <span className="badge bg-primary rounded-pill">Importante!</span>
             </li>

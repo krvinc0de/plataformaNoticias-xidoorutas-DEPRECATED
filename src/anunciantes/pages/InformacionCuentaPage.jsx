@@ -92,11 +92,11 @@ export const InformacionCuentaPage = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className='mt-3'>
-        <button className='btn btn-success'>
-            <Link className='link' to='/inicio'>Regresar a inicio</Link>
-        </button>
+        <div className='mt-3 d-flex justify-content-start'>
+          <button className='btn btn-primary'>
+              <Link className='link' to='/inicio'>Regresar a inicio</Link>
+          </button>
+        </div>
       </div>
     </>
   );
