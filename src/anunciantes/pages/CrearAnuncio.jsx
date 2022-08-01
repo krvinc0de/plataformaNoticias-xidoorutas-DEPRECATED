@@ -5,7 +5,7 @@ import { useForm } from '../hooks/useForm'
 import '../styles/formStyle.css'
 import { errorEmptyInput } from '../alertas/errorEmptyInput'
 import { successPost } from '../alertas/successPost'
-import { Consideraciones } from '../components/consideraciones'
+import { Consideraciones } from '../components'
 
 export const CrearAnuncio = () => {
   
