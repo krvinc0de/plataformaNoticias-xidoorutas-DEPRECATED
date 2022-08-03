@@ -45,7 +45,7 @@ export const AnuncioPage = () => {
         />
       </div>
       <div className="col-8">
-        <h3>{titulo}</h3>
+        <h2>{titulo}</h2>
         <hr />
         <ul className="list-group list-group-flush animate__animated animate__slideInDown">
           <li className="list-group-item"><b>dependencia: </b>{dependencia}</li>

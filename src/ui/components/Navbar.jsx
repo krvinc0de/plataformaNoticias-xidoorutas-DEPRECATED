@@ -66,7 +66,6 @@ export const Navbar = () => {
                           <th>
                             <Link className='text-dark text-decoration-none' to="/inicio">
                               <button className='btn2 btn-warning'>
-                                <i className='m-2'>icono</i>
                                 Inicio
                               </button>
                             </Link>
@@ -76,7 +75,6 @@ export const Navbar = () => {
                           <th>
                             <Link className='text-dark text-decoration-none' to='/todos'>
                               <button className='btn2 btn-warning'>
-                                <i className='m-2'>Icono</i>
                                 Publicaciones
                               </button>
                             </Link>
@@ -86,7 +84,6 @@ export const Navbar = () => {
                           <th>
                             <Link className='text-dark text-decoration-none' to="/crear">
                               <button className='btn2 btn-warning'>
-                                <i className='m-2'>Icono</i>
                                 Crear Publicacion
                               </button>
                             </Link>
