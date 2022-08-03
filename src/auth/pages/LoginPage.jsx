@@ -6,6 +6,7 @@ import { AuthContext } from '../context/AuthContext'
 import { url_consulta } from '../database/API_URL'
 import { useForm } from '../hooks/useForm'
 import './styles/loginStyle.css'
+import logo from '../assets/logoxr.png'
 
 export const LoginPage = () => {
 
@@ -75,7 +76,7 @@ export const LoginPage = () => {
                 </div>
               </div>
               <div className="col centrador">
-                <img src="https://raw.githubusercontent.com/krvinc0de/loginprueba/master/src/assets/logoxr.png?token=GHSAT0AAAAAABUGQ7EXN6C7OCNFRAV4L5QCYWSKKLQ" className="imagen" alt='Xidoo Rutas'/>
+                <img src={logo} className="imagen" alt='Xidoo Rutas'/>
               </div>
             </div>
             <p className="hastag-style">#Conectando la ciudad</p>
